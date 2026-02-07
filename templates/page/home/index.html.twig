@@ -1,5 +1,36 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>Home page</h1>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+            <h1 class="text-center">Мой Не Сам</h1>
+
+            <div id="carousel" class="carousel slide mb-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="/assets/img/1.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="/assets/img/2.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="/assets/img/3.jpg" class="d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Назад</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Вперед</span>
+                </button>
+            </div>
+
+            <p class="text-center mb-5"><a href="{{ url('app_order_new') }}" class="btn btn-primary btn-lg">Оставить заявку</a></p>
+        </div>
+    </div>
+
 {% endblock %}
