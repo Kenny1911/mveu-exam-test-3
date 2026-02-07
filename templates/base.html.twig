@@ -14,6 +14,8 @@
     </head>
     <body>
         <main>
+            {% include "header.html.twig" %}
+
             <div class="container">
                 {# Show flash messages #}
                 {% for message in app.flashes('success') %}
