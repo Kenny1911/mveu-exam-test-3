@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Вход</h1>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ url('app_login') }}" method="POST">
+        <div class="mb-3">
+            <label for="username" class="form-label required">Логин:</label>
+            <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label required">Пароль:</label>
+            <input class="form-control" type="password" id="password" name="_password" required>
+        </div>
+
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account"> #}
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Войти</button>
+            <span class="d-inline-block ms-3">Нет аккаунта? <a href="{{ url('app_register') }}">Зарегистрируйтесь</a></span>
+        </div>
+    </form>
+{% endblock %}
