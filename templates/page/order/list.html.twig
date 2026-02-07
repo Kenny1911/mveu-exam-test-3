@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Мои заявки{% endblock %}
+
+{% block body %}
+    <h1>Мои заявки</h1>
+
+    <p><a href="{{ url('app_order_new') }}" class="btn btn-primary">Оставить заявку</a></p>
+
+    {% if orders|length %}
+        <div class="row">
+            {% for order in orders %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>{{ order.service.title }}</h5>
+                            <p><b>{{ order.status.title }}</b></p>
+                            <p><b></b> {{ order.address }}</p>
+                            <p><b></b> {{ order.orderTimestamp | date }}</p>
+                            <p><b></b> {{ order.payType.title }}</p>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h4>Вы пока не оставляли заявок</h4>
+    {% endif %}
+{% endblock %}
