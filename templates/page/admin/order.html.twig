@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Заявка{% endblock %}
+
+{% block body %}
+    <h1>Заявка</h1>
+
+    <p><b>Клиент:</b> {{ order.customer.lastName }} {{ order.customer.firstName }} {{ order.customer.middleName }}</p>
+    <p><b>Адрес:</b> {{ order.address }}</p>
+    <p><b>Дата и время:</b> {{ order.orderTimestamp|date }}</p>
+    <p><b>Контактный телефон:</b> {{ order.contactPhone }}</p>
+
+    <p><b>Услуга:</b> {{ order.service.title }}</p>
+    <p><b>Способ оплаты:</b> {{ order.payType.title }}</p>
+    <p><b>Статус:</b> {{ order.status.title }}</p>
+
+    {% if form %}
+        {{ form(form) }}
+    {% endif %}
+
+    {% if order.comment %}
+        <p><b>Комментарий:</b><br>{{ order.comment|nl2br }}</p>
+    {% endif %}
+{% endblock %}

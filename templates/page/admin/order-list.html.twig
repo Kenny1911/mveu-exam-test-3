@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Список бронирований{% endblock %}
+
+{% block body %}
+    <h1>Список заявок</h1>
+
+    {% if orders|length %}
+        <div class="row">
+            {% for order in orders %}
+                <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>{{ order.customer.lastName }} {{ order.customer.firstName }} {{ order.customer.middleName }}</h5>
+                            <h6>{{ order.service.title }}</h6>
+                            <p>{{ order.status.title }}</p>
+                            <p>{{ order.orderTimestamp | date }}</p>
+                            <p>
+                                <a href="{{ url('app_admin_order', {id: order.id}) }}" class="btn btn-outline-primary">Открыть</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h4>Заявок пока нет</h4>
+    {% endif %}
+{% endblock %}
