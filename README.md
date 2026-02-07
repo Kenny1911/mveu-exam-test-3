@@ -80,3 +80,7 @@ docker compose down
 ```bash
 docker compose ps
 ```
+
+## ER-диаграмм
+
+![](./diagram.png)
